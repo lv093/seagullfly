@@ -3,6 +3,7 @@ package models
 import (
 	orm "github.com/astaxie/beego/orm"
 	"seagullfly/utils"
+	"fmt"
 )
 
 func init() {
@@ -25,10 +26,19 @@ type ArticlesOrm struct {
 }
 
 func (this ArticlesOrm) TableName() string {
-	return "cfa_teams"
+	return "article_info"
 }
 
 func (this ArticlesOrm) GetQuery() orm.QuerySeter {
 	conn := GetConnection()
 	return conn.QueryTable(this.TableName())
+}
+
+func (this ArticlesOrm) QueryTest() []orm.Params {
+	itemList := make([]orm.Params, 0)
+	sql := fmt.Sprintf("select * from %s ", this.TableName())
+
+	conn := GetConnection()
+	conn.Raw(sql).Values(&itemList)
+	return itemList
 }

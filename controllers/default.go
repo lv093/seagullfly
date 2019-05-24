@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 )
 
 type MainController struct {
@@ -13,3 +14,7 @@ type MainController struct {
 //	c.Data["Email"] = "astaxie@gmail.com"
 //	c.TplName = "index.tpl"
 //}
+
+func (this MainController)ReturnJson(data orm.Params, code int, message string) {
+
+}

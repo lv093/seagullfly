@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/astaxie/beego/logs"
+	"seagullfly/services"
 )
 
 type ArticleController struct {
@@ -14,7 +15,8 @@ func Init() {
 }
 
 func (this ArticleController) List() {
-	fmt.Printf("hello beego")
-	this.Ctx.WriteString("hello world!!!")
-	logs.Info("hello logs")
+	articleService := services.GetArticleService()
+	articles := articleService.List()
+	logs.Info("articles ret:%v", articles)
+	this.Ctx.Output.JSON(articles, true,true)
 }
