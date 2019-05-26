@@ -10,6 +10,7 @@ import (
 
 func init() {
 	initialize.RegisterDatabase()
+	initialize.RegisterRedis()
 }
 func main() {
 	if beego.BConfig.RunMode == "dev" {
