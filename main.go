@@ -11,6 +11,8 @@ import (
 func init() {
 	initialize.RegisterDatabase()
 	initialize.RegisterRedis()
+
+	//beego.SetStaticPath("/uploads", "uploads")
 }
 func main() {
 	if beego.BConfig.RunMode == "dev" {

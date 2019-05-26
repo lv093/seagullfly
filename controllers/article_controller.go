@@ -20,3 +20,7 @@ func (this ArticleController) List() {
 	logs.Info("articles ret:%v", articles)
 	this.Ctx.Output.JSON(articles, true,true)
 }
+
+func (this ArticleController) Get()  {
+
+}
