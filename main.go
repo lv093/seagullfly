@@ -19,7 +19,7 @@ func main() {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
 		go func() {
-			http.ListenAndServe("192.168.0.112:8031", nil)
+			http.ListenAndServe(":9999", nil)
 		}()
 	}
 
