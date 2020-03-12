@@ -7,7 +7,7 @@ import (
 )
 
 type ArticleController struct {
-	MainController
+	BaseController
 }
 
 func Init() {
@@ -19,8 +19,4 @@ func (this ArticleController) List() {
 	articles := articleService.TestConds()
 	logs.Info("articles ret:%v", articles)
 	this.Ctx.Output.JSON(articles, true,true)
-}
-
-func (this ArticleController) Get()  {
-
 }
