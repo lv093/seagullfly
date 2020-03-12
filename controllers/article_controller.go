@@ -16,7 +16,7 @@ func Init() {
 
 func (this ArticleController) List() {
 	articleService := services.GetArticleService()
-	articles := articleService.List()
+	articles := articleService.TestConds()
 	logs.Info("articles ret:%v", articles)
 	this.Ctx.Output.JSON(articles, true,true)
 }
